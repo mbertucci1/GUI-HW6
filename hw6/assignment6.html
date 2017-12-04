@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<!--
+  Name: Michael Bertucci
+  Email: Michael_Bertucci@student.uml.edu
+  UMass Lowell, COMP.4610 GUI Programming I
+  Created: Dec. 2, 2017
+  Assignment 6
+  
+  www.w3schools.com HTML and CSS tutorials were
+  used as a resource.
+  -->
+  
+  
+<html>
+  <head>
+    <title>Assignment 5</title>
+
+    <!-- jQuery Validation Library -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+
+    <!-- jQuery UI Library -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/hw6.css"/>
+    <script src="hw6.js"></script>
+  </head>
+
+  <body>
+
+    <div class="page_title">
+      <h2>Vehicle Cost Comparison Table</h2>
+    </div>
+
+    <!--
+    Form for user to input necessary data for creating the table.
+    For the most part it is self-explanatory.
+    Some of the input validation comes from the attributes (type, min, etc.),
+    and some of it occurs in the javascript when the user attempts to submit.
+    -->
+    <form id="input-form" action="javascript:onSubmit()">
+      <div class="form_head">
+        <h2>General Data</h2>
+        <div class="data">
+          <label>Time period in months: </label>
+          <input type="number" name="months" id="months" value="36" min="1"><br>
+        </div>
+        <div class="data">
+          <span></span>
+          <div id="months-slider" class="slide"></div><br>
+        </div>
+        
+        <div class="data">
+          <label>Miles driven per year: </label>
+          <input type="number" name="miles" id="miles" value="15000" min="1"><br>
+        </div>
+        <div class="data">
+          <span></span>
+          <div id="miles-slider" class="slide"></div><br>
+        </div>
+
+        <div class="data">
+          <label>Price per gallon of gas: $</label>
+          <input type="number" name="cost_of_gal" id="cost_of_gal" value="3.00" min="1" step="0.01"><br>
+        </div>
+        <div class="data">
+          <span></span>
+          <div id="gas-slider" class="slide"></div><br>
+        </div>
+      </div>
+
+
+      <div class="form_column">
+        <h2>Vehicle Prices</h2>
+        Number of values: 
+        <input type="number" class="num_values" name="num_prices" id="num_price_values" value="1" min="1" onchange="onNumPricesChange()"><br>
+        <div id="num-prices-slider" class="slide"></div><br>
+        <h4>Enter dollar values below:</h4>
+        <div id="price_values">
+          <input type="number" class="price" name="price0" id="price0" value="10000" min="2000"><br>
+          <div id="price-slider0" name="0" class="price-slider"></div><br>
+        </div>
+        <br><br>
+      </div>
+
+      <div class="form_column">
+        <h2>Vehicle Fuel Usage</h2>
+        Number of values: 
+        <input type="number" class="num_values" name="num_mpgs" id="num_mpg_values" value="1" min="1" onchange="onNumMpgChange()"><br>
+        <div id="num-mpg-slider" class="slide"></div><br>
+        <h4>Enter MpG values below:</h4>
+        <div id="mpg_values">
+          <input type="number" class="mpg" name="mpg0" id="mpg0" value="20" min="5"><br>
+          <div id="mpg-slider0" name="0" class="mpg-slider"></div><br>
+        </div>
+        <br><br>
+      </div>
+
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <!--
+    Spot where table will be inserted.
+    The table starts with a single header with placeholder text.
+    The table body will be replaced with generated rows upon submitting the form.
+    -->
+    <div class="table_area">
+      <table id="comparison_table">
+        <tr>
+          <th style="border:none">Enter values and click Submit to compare costs.</th>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>

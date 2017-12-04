@@ -1,0 +1,128 @@
+/*
+  Name: Michael Bertucci
+  Email: Michael_Bertucci@student.uml.edu
+  UMass Lowell, COMP.4610 GUI Programming I
+  Created: Dec. 2, 2017
+  Assignment 6
+  
+  www.w3schools.com HTML and CSS tutorials were
+  used as a resource.
+*/
+
+div .ui-slider-horizontal {
+  margin-bottom: 10px;
+  height: 1em;
+  width: 160px;
+}
+
+.ui-slider .ui-slider-handle {
+  height: 1.2em;
+  width: 6px;
+  margin-left: -3px;
+  margin-top: .2em;
+}
+
+label.error {
+  color:red;
+  font-style:italic;
+  padding-left:10px;
+}
+
+.form_column {
+  float:left;
+  width:50%;
+}
+
+h2 {
+  background-color:#e7e7e7;
+}
+
+.page_title {
+  padding-left:15px;
+  padding-right:15px;
+  border-style:solid;
+  border-width:medium;
+  border-radius:10px;
+  margin-bottom:2%;
+}
+
+.page_title h2 {
+  text-align:center;
+  background-color:#33DDFF;
+}
+
+input {
+  width:160px;
+  margin-bottom: 10px;
+}
+
+input.num_values {
+  width:40px;
+}
+
+input[type="submit"] {
+  margin:auto;
+  clear:left;
+  display:block;
+  margin-top:10%;
+  
+  background-color: white;
+  padding: 5px 20px;
+  font-size: 14px;
+  color: black; 
+  border: 4px solid #33DDFF;
+  background-color:#e7e7e7;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form {
+  padding:15px;
+  border-style:solid;
+  border-width:medium;
+  border-radius:10px;
+  margin-bottom:2%;
+}
+
+.table_area {
+  padding:15px;
+  border-style:solid;
+  border-width:medium;
+  border-radius:10px;
+  overflow-x:auto;
+  margin-bottom:5%;
+}
+
+table {
+  margin:auto;
+  width:100%;
+  border-collapse:collapse;
+}
+
+.data {
+  display:table-row;
+}
+
+.data * {
+  display:table-cell;
+}
+
+div.data label {
+  padding-top: 15px;
+  padding-bottom:15px;
+}
+
+
+td,th { 
+  white-space:pre;
+  padding:10px;
+  border: 2px solid;
+}
+
+th {
+  background-color:#33DDFF;
+}
+
+td {
+  text-align:center;
+}
