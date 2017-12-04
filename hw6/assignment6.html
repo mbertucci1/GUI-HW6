@@ -9,12 +9,14 @@
   
   www.w3schools.com HTML and CSS tutorials were
   used as a resource.
+
+  Other references are listed in hw6.js
   -->
   
   
 <html>
   <head>
-    <title>Assignment 5</title>
+    <title>Assignment 6</title>
 
     <!-- jQuery Validation Library -->
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -31,16 +33,45 @@
   <body>
 
     <div class="page_title">
-      <h2>Vehicle Cost Comparison Table</h2>
+      <h2>Vehicle Cost Comparison Tables</h2>
     </div>
 
+    <!--
+    Buttons for adding new tabs and deleting them.
+    Each tab has its own delete icon, but the slider control here is
+    used to delete multiple tabs at once.
+    -->
+    <div id="tab-controls">
+      <button id="add-tab" onclick="addTab()">NEW TABLE</button>
+      <ul id="remove-group">
+        <li><h4 id="tabs-slider-label">Delete tabs from beginning: </h4></li>
+        <li><div id="tabs-slider"><div id="custom-handle" class="ui-slider-handle"></div></div></li>
+        <li><button id="delete-range">DELETE</button></li>
+      </ul>
+    </div>
+
+    <!--
+    Location of tabs widget.
+    Initial tabs are added programmatically from javascript.
+    -->
+    <div id="tabs">
+      <ul>
+      </ul>
+    </div>
+
+
+<!-- 
+  This section is from the older assignments. 
+  It has been hidden here and moved as a template to hw6.js.
+-->
+    <div id="tab-content" hidden>
     <!--
     Form for user to input necessary data for creating the table.
     For the most part it is self-explanatory.
     Some of the input validation comes from the attributes (type, min, etc.),
     and some of it occurs in the javascript when the user attempts to submit.
     -->
-    <form id="input-form" action="javascript:onSubmit()">
+    <form id="input-form" name="input-form" action="javascript:onSubmit()">
       <div class="form_head">
         <h2>General Data</h2>
         <div class="data">
@@ -49,7 +80,7 @@
         </div>
         <div class="data">
           <span></span>
-          <div id="months-slider" class="slide"></div><br>
+          <div name="months-slider" class="slide"></div><br>
         </div>
         
         <div class="data">
@@ -58,7 +89,7 @@
         </div>
         <div class="data">
           <span></span>
-          <div id="miles-slider" class="slide"></div><br>
+          <div name="miles-slider" class="slide"></div><br>
         </div>
 
         <div class="data">
@@ -67,7 +98,7 @@
         </div>
         <div class="data">
           <span></span>
-          <div id="gas-slider" class="slide"></div><br>
+          <div name="gas-slider" class="slide"></div><br>
         </div>
       </div>
 
@@ -75,12 +106,12 @@
       <div class="form_column">
         <h2>Vehicle Prices</h2>
         Number of values: 
-        <input type="number" class="num_values" name="num_prices" id="num_price_values" value="1" min="1" onchange="onNumPricesChange()"><br>
-        <div id="num-prices-slider" class="slide"></div><br>
+        <input type="number" class="num_values" name="num_prices" id="num_price_values" value="1" min="1" onchange="onNumPricesChange('tabs-1')"><br>
+        <div name="num-prices-slider" class="slide"></div><br>
         <h4>Enter dollar values below:</h4>
-        <div id="price_values">
+        <div id="price_values" name="price_values">
           <input type="number" class="price" name="price0" id="price0" value="10000" min="2000"><br>
-          <div id="price-slider0" name="0" class="price-slider"></div><br>
+          <div id="price-slider0" name="price-slider0" class="price-slider"></div><br>
         </div>
         <br><br>
       </div>
@@ -88,12 +119,12 @@
       <div class="form_column">
         <h2>Vehicle Fuel Usage</h2>
         Number of values: 
-        <input type="number" class="num_values" name="num_mpgs" id="num_mpg_values" value="1" min="1" onchange="onNumMpgChange()"><br>
-        <div id="num-mpg-slider" class="slide"></div><br>
+        <input type="number" class="num_values" name="num_mpgs" id="num_mpg_values" value="1" min="1" onchange="onNumMpgChange('tabs-1')"><br>
+        <div name="num-mpg-slider" class="slide"></div><br>
         <h4>Enter MpG values below:</h4>
-        <div id="mpg_values">
+        <div id="mpg_values" name="mpg_values">
           <input type="number" class="mpg" name="mpg0" id="mpg0" value="20" min="5"><br>
-          <div id="mpg-slider0" name="0" class="mpg-slider"></div><br>
+          <div id="mpg-slider0" name="mpg-slider0" class="mpg-slider"></div><br>
         </div>
         <br><br>
       </div>
@@ -108,12 +139,15 @@
     The table body will be replaced with generated rows upon submitting the form.
     -->
     <div class="table_area">
-      <table id="comparison_table">
+      <table id="comparison_table" name="comparison_table">
         <tr>
           <th style="border:none">Enter values and click Submit to compare costs.</th>
         </tr>
       </table>
     </div>
+
+
+    </div>  <!-- tab-content -->
 
   </body>
 </html>
